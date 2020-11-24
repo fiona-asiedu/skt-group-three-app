@@ -1,0 +1,19 @@
+.login-container {
+    height: 100vh;
+    margin-top: 10%;
+    padding: 0 10%;
+}
+
+.img-section {
+    background-color: black;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-section img {
+    height: 50px;
+}
