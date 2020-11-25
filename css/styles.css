@@ -17,3 +17,53 @@
 .img-section img {
     height: 50px;
 }
+
+/* Dashboard */
+.custom-navbar {
+    background-color: #aeb54f;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.3rem;
+    margin-right: 1.3rem;
+    background-color: whitesmoke;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.project-detail-intro {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 0 5rem;
+}
+
+.project-detail-charts {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    padding: 0 5rem;
+}
+
+.project-detail-teams {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    padding: 0 5rem;
+}
+
+.project-detail-risks {
+    margin-top: 20px;
+    margin-bottom: 100px;
+    padding: 0 5rem;
+}
+
+.project-detail-risks ul {
+    list-style-type: disc;
+    padding-left: 2rem
+}
