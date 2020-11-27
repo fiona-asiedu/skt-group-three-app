@@ -67,3 +67,8 @@
     list-style-type: disc;
     padding-left: 2rem
 }
+
+.create-task-section {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
