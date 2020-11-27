@@ -71,28 +71,33 @@
     list-style-type: disc;
     padding-left: 2rem
 }
-.tab-switch{
+
+.tab-switch {
     margin-top: 45px;
     margin-bottom: 35px;
-    
- 
+
+
 }
-.dashboard-details{
+
+.dashboard-details {
     margin-top: 30px;
     margin-bottom: 35px;
-    padding: 0 8rem; 
-    
+    padding: 0 8rem;
+
 }
-.button-size{
+
+.button-size {
     height: 5em;
 }
+
 .tabs.is-toggle li.is-active a {
     background-color: #0a0a0a;
     border-color: #ffdd57;
     color: #fff;
     z-index: 1;
 }
-.task-assigned{
+
+.task-assigned {
     align-items: center;
     border: 0.5px solid #aeb54f;
     border-radius: 10px;
@@ -102,13 +107,14 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
-.project-chart{
+
+.project-chart {
     margin-top: 50px;
     margin-bottom: 50px;
-   /* padding: 3rem 8rem; */
+    /* padding: 3rem 8rem; */
 }
 
-.img-bar-chart{
+.img-bar-chart {
     margin-top: 20px;
 }
 
@@ -116,18 +122,27 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.task-page-section{
-padding-left: 50px;
-padding-right: 50px;
+
+.task-page-section {
+    padding-left: 50px;
+    padding-right: 50px;
 }
-.project-task{
+
+.project-task {
     margin-top: 40px;
 }
-.task-alignment{
+
+.task-alignment {
     padding-left: 200px;
     padding-right: 200px;
-      
+
 }
-.increase-length{
+
+.increase-length {
     width: 200px;
+}
+
+.create-task-section {
+    margin-top: 30px;
+    margin-bottom: 100px;
 }
