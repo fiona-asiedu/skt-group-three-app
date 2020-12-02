@@ -97,16 +97,68 @@
                                 <textarea class="textarea" placeholder="What is the project about" name="description"></textarea>
                             </div>
                         </div>
+<<<<<<< HEAD
+                    </div>
+                    <button type="submit" class="button is-black">Create Project</button>
+                </form>
+            </div>
+        </div>
+    </div>
+=======
                         <a href=allprojects.html class="button is-black">Create Project</a>
 
 
 
+>>>>>>> cd59ba1463ca09c137461d693132077a221c0e3d
 
                         <!-- The core Firebase JS SDK is always required and must be listed first -->
                         <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 
                         <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
+<<<<<<< HEAD
+     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAIL5wyiVlLYkQTcYBN_y_x0FRYC9otCy0",
+    authDomain: "bliss-8d3fc.firebaseapp.com",
+    databaseURL: "https://bliss-8d3fc.firebaseio.com",
+    projectId: "bliss-8d3fc",
+    storageBucket: "bliss-8d3fc.appspot.com",
+    messagingSenderId: "271696285388",
+    appId: "1:271696285388:web:a685cb733fdcedc216bc69"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+    var db = firebase.firestore();
+
+    function addProject(event) {
+      event.preventDefault();
+      db.collection('projects')
+        .add({
+          Name: event.target.name.value,
+          label: event.target.label.value,
+          startDate: event.target.start.value,
+          endDate: event.target.end.value,
+          budget: event.target.budget.value,
+          description: event.target.description.value,
+        })
+        .then(function (docRef) {
+          console.log('Document written with ID: ', docRef.id);
+          window.location.href = '/pm/allprojects.html';
+        })
+        .catch(function (error) {
+          console.error('Error adding document: ', error);
+        });
+    }
+  </script>
+</body>
+=======
                         <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
 
                         <script>
@@ -143,5 +195,6 @@
                                 });
                         </script>
     </body>
+>>>>>>> cd59ba1463ca09c137461d693132077a221c0e3d
 
 </html>
