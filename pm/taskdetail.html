@@ -66,27 +66,8 @@
                     </div>
                 </div>
                 <div class="columns">
-                    <div class="column">
-                        <nav class="panel">
-                            <p class="panel-heading">
-                                Alberta Hayford
-                            </p>
-                            <div class="panel-block">
-                                <p>
-                                    We are ahort of some chemicals for spraying.
-                                </p>
-                            </div>
-                        </nav>
-                        <nav class="panel">
-                            <p class="panel-heading">
-                                Victoria Inkoom
-                            </p>
-                            <div class="panel-block">
-                                <p>
-                                    The spraying will commence in 2 weeks.
-                                </p>
-                            </div>
-                        </nav>
+                    <div class="column" id="all-comments">
+                        <!-- Comments will be inserted dynamically using JS -->
                     </div>
                 </div>
             </div>
@@ -116,6 +97,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     firebase.initializeApp(firebaseConfig);
 </script>
 <script>
+    // Display task details
     var taskDetailDiv = document.getElementById('task-detail');
     taskDetailDiv.innerHTML = ""
     taskDetailDiv.innerHTML = `<p>${taskDetailsData.title} - ${taskDetailsData.deadline} </p>
@@ -123,6 +105,32 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                     <br>
                     <p>${taskDetailsData.description}</p>`
 
+    // Display comments
+    function getAllComments() {
+        var db = firebase.firestore();
+        var commentsDiv = document.getElementById('all-comments');
+        db.collection("comments").get().then((querySnapshot) => {
+            commentsDiv.innerHTML = '';
+            querySnapshot.forEach((doc) => {
+                let data = doc.data();
+                console.log(data);
+                let newRow = `
+                    <nav class="panel">
+                            <p class="panel-heading">
+                                ${data.commenttitle}
+                            </p>
+                            <div class="panel-block">
+                                <p>
+                                    ${data.description}
+                                </p>
+                            </div>
+                        </nav>
+                    `
+                commentsDiv.innerHTML = commentsDiv.innerHTML + newRow
+            });
+        });
+    }
+    getAllComments();
 </script>
 
 </html>
