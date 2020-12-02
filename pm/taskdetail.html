@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="../css/bulma.min.css" />
     <link rel="stylesheet" href="../css/styles.css" />
     <title>Task Details</title>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const taskDetailsData = {
+            title: urlParams.get('title'),
+            status: urlParams.get('status'),
+            deadline: urlParams.get('deadline'),
+            description: urlParams.get('description'),
+        }
+        console.log(taskDetailsData);
+    </script>
 </head>
 
 <body>
@@ -40,19 +51,7 @@
                 </h4>
                 <br>
                 <div id="task-detail">
-                    <p>Spraying -30/11/2020 </p>
-                    <p>(Status -Ongoing)</p>
-                    <br>
-                    <p> By implementing drone technology, farms and agricultural businesses can improve crop yields, save
-                        time,and make
-                        land management decisions that will improve long-term success.
-                        SKT Aeroshutter's UAVs are equipped with technology well vested in propulsion systems, infrared
-                        cameras, GPS
-                        and navigation systems, programmable controllers, and automated flight planning. With custom-made
-                        data
-                        processing software any collected information can instantly be put to use towards better management
-                        decisions.
-                    </p>
+                    <!-- inserted dynamically using JS -->
                 </div>
             </div>
         </div>
@@ -117,29 +116,12 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     firebase.initializeApp(firebaseConfig);
 </script>
 <script>
-    function getTaskDetail() {
-        console.log("get tasks now");
-        var db = firebase.firestore();
-        var allTasksDiv = document.getElementById('all-tasks');
-        db.collection("task").get().then((querySnapshot) => {
-            allTasksDiv.innerHTML = '';
-            querySnapshot.forEach((doc) => {
-                // console.log(`${doc.id} => ${doc.data().projectName}`);
-                let data = doc.data();
-                console.log(data);
-                let newRow = `
-                <a href="taskdetail.html" class="button task-box is-fullwidth is-large is-link is-outlined shadow">
-                    <div>
-                        <h4 class="is-size-6 has-text-black has-text-center"> ${data.taskTitle} - ${data.taskDeadline} </h4>
-                        <h6 class="is-size-7 has-text-black ">(Status- ${data.status})</h6>
-                    </div>
-                </a>
-                `
-                allTasksDiv.innerHTML =  allTasksDiv.innerHTML + newRow
-            });
-        });
-    }
-    getTaskDetail();
+    var taskDetailDiv = document.getElementById('task-detail');
+    taskDetailDiv.innerHTML = ""
+    taskDetailDiv.innerHTML = `<p>${taskDetailsData.title} - ${taskDetailsData.deadline} </p>
+                    <p>(Status - ${taskDetailsData.status})</p>
+                    <br>
+                    <p>${taskDetailsData.description}</p>`
 
 </script>
 

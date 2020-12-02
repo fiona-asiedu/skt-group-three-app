@@ -179,14 +179,14 @@
                     let data = doc.data();
                     console.log(data);
                     let newRow = `
-                    <a href="taskdetail.html" class="button task-box is-fullwidth is-large is-link is-outlined shadow">
+                    <a href="taskdetail.html?title=${data.taskTitle}&status=${data.status}&deadline=${data.taskDeadline}&description=${data.description}" class="button task-box is-fullwidth is-large is-link is-outlined shadow">
                         <div>
                             <h4 class="is-size-6 has-text-black has-text-center"> ${data.taskTitle} - ${data.taskDeadline} </h4>
                             <h6 class="is-size-7 has-text-black ">(Status- ${data.status})</h6>
                         </div>
                     </a>
                     `
-                    allTasksDiv.innerHTML =  allTasksDiv.innerHTML + newRow
+                    allTasksDiv.innerHTML = allTasksDiv.innerHTML + newRow
                 });
             });
         }
