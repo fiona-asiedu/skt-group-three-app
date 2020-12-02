@@ -111,7 +111,6 @@
 .project-chart {
     margin-top: 50px;
     margin-bottom: 50px;
-    /* padding: 3rem 8rem; */
 }
 
 .img-bar-chart {
@@ -124,8 +123,8 @@
 }
 
 .task-page-section {
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
 }
 
 .project-task {
@@ -155,3 +154,4 @@
 .shadow {
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
+

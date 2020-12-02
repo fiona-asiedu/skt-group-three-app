@@ -39,19 +39,21 @@
                     Task Detail
                 </h4>
                 <br>
-                <p>Spraying -30/11/2020 </p>
-                <p>(Status -Ongoing)</p>
-                <br>
-                <p> By implementing drone technology, farms and agricultural businesses can improve crop yields, save
-                    time,and make
-                    land management decisions that will improve long-term success.
-                    SKT Aeroshutter's UAVs are equipped with technology well vested in propulsion systems, infrared
-                    cameras, GPS
-                    and navigation systems, programmable controllers, and automated flight planning. With custom-made
-                    data
-                    processing software any collected information can instantly be put to use towards better management
-                    decisions.
-                </p>
+                <div id="task-detail">
+                    <p>Spraying -30/11/2020 </p>
+                    <p>(Status -Ongoing)</p>
+                    <br>
+                    <p> By implementing drone technology, farms and agricultural businesses can improve crop yields, save
+                        time,and make
+                        land management decisions that will improve long-term success.
+                        SKT Aeroshutter's UAVs are equipped with technology well vested in propulsion systems, infrared
+                        cameras, GPS
+                        and navigation systems, programmable controllers, and automated flight planning. With custom-made
+                        data
+                        processing software any collected information can instantly be put to use towards better management
+                        decisions.
+                    </p>
+                </div>
             </div>
         </div>
         <div class="columns is-centered">
@@ -92,5 +94,53 @@
         </div>
     </div>
 </body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAIL5wyiVlLYkQTcYBN_y_x0FRYC9otCy0",
+        authDomain: "bliss-8d3fc.firebaseapp.com",
+        databaseURL: "https://bliss-8d3fc.firebaseio.com",
+        projectId: "bliss-8d3fc",
+        storageBucket: "bliss-8d3fc.appspot.com",
+        messagingSenderId: "271696285388",
+        appId: "1:271696285388:web:a685cb733fdcedc216bc69",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+    function getTaskDetail() {
+        console.log("get tasks now");
+        var db = firebase.firestore();
+        var allTasksDiv = document.getElementById('all-tasks');
+        db.collection("task").get().then((querySnapshot) => {
+            allTasksDiv.innerHTML = '';
+            querySnapshot.forEach((doc) => {
+                // console.log(`${doc.id} => ${doc.data().projectName}`);
+                let data = doc.data();
+                console.log(data);
+                let newRow = `
+                <a href="taskdetail.html" class="button task-box is-fullwidth is-large is-link is-outlined shadow">
+                    <div>
+                        <h4 class="is-size-6 has-text-black has-text-center"> ${data.taskTitle} - ${data.taskDeadline} </h4>
+                        <h6 class="is-size-7 has-text-black ">(Status- ${data.status})</h6>
+                    </div>
+                </a>
+                `
+                allTasksDiv.innerHTML =  allTasksDiv.innerHTML + newRow
+            });
+        });
+    }
+    getTaskDetail();
+
+</script>
 
 </html>
