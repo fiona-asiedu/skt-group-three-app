@@ -86,107 +86,119 @@
         <a href="createteams.html" class="button is-black is-small">Create Team</a>
       </div>
     </div>
-    <div class="columns">
-      <div class="column">
-        <a href="taskpage.html" class="button is-light is-warning is-fullwidth">Sales</a>
-      </div>
-      <div class="column">
+    <div class="columns" id="created-teams">
+      <!-- inserted dynamically using JS -->
+    </div>
+
+    <script src="../js/Chart.bundle.min.js"></script>
+    <script>
+      var ctx = document.getElementById('barchart').getContext('2d');
+
+      // For bar chart
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Budget', 'Expenses', 'Revenue', 'Profit',],
+          datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5,],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
+
+      // For a pie chart
+      var ptx = document.getElementById('piechart').getContext('2d');
+
+      var myPieChart = new Chart(ptx, {
+        type: 'pie',
+        data: {
+          labels: ['Complete(%)', 'In Progress(%)',],
+          datasets: [{
+            label: 'Projects Progress',
+            data: [80, 20],
+            backgroundColor: [
+              'rgba(153, 102, 255, 0.2)',
+              '#eeecda',
+            ],
+            borderColor: [
+              'rgba(153, 102, 255, 1)',
+              'rgba((0, 128, 128, 1)',
+            ],
+            borderWidth: 1
+          }]
+        },
+      });
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+  https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAIL5wyiVlLYkQTcYBN_y_x0FRYC9otCy0",
+        authDomain: "bliss-8d3fc.firebaseapp.com",
+        databaseURL: "https://bliss-8d3fc.firebaseio.com",
+        projectId: "bliss-8d3fc",
+        storageBucket: "bliss-8d3fc.appspot.com",
+        messagingSenderId: "271696285388",
+        appId: "1:271696285388:web:a685cb733fdcedc216bc69",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script>
+      function getAllTeams() {
+        console.log("get teams now");
+        var db = firebase.firestore();
+        var allTeamsDiv = document.getElementById('created-teams');
+        db.collection("teams").get().then((querySnapshot) => {
+          allTeamsDiv.innerHTML = '';
+          querySnapshot.forEach((doc) => {
+            // console.log(`${doc.id} => ${doc.data().projectName}`);
+            let data = doc.data();
+            console.log(data);
+            let newRow = `
+                  <div class="column is-3">
         <a href="taskpage.html" class="button is-light is-warning is-fullwidth">
-          Logistics
+          ${data.teamName}
         </a>
       </div>
-      <div class="column">
-        <a href="taskpage.html" class="button is-light is-warning is-fullwidth">Operations</a>
-      </div>
-      <div class="column">
-        <a href="taskpage.html" class="button is-light is-warning is-fullwidth">Finance</a>
-      </div>
-    </div>
-  </div>
-  <div class="container project-detail-risks">
-    <div class="columns">
-      <div class="column">
-        <h4 class="is-size-5">
-          Possible Risks Factors From Teams
-        </h4>
-        <br />
-        <ul>
-          <li>
-            Bad Weather on 24th which can cause damage to drone.
-          </li>
-          <li>
-            Possible political rally at site which can affect quality work.
-          </li>
-          <li>
-            Transportation of equipment to location might exceed the budget
-            allocated for transport.
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <script src="../js/Chart.bundle.min.js"></script>
-  <script>
-    var ctx = document.getElementById('barchart').getContext('2d');
-
-    // For bar chart
-    var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Budget', 'Expenses', 'Revenue', 'Profit',],
-        datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5,],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
+                  
+                  `
+            allTeamsDiv.innerHTML = allTeamsDiv.innerHTML + newRow
+          });
+        });
       }
-    });
+      getAllTeams();
 
-    // For a pie chart
-    var ptx = document.getElementById('piechart').getContext('2d');
-
-    var myPieChart = new Chart(ptx, {
-      type: 'pie',
-      data: {
-        labels: ['Complete(%)', 'In Progress(%)',],
-        datasets: [{
-          label: 'Projects Progress',
-          data: [80, 20],
-          backgroundColor: [
-          'rgba(153, 102, 255, 0.2)',
-          '#eeecda',
-          ],
-          borderColor: [
-          'rgba(153, 102, 255, 1)',
-          'rgba((0, 128, 128, 1)',
-          ],
-          borderWidth: 1
-        }]
-      },
-    });
-  </script>
+    </script>
 </body>
 
 </html>
