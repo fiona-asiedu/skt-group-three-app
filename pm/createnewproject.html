@@ -33,80 +33,90 @@
             </div>
         </div>
     </nav>
-</head>
-<body>
-    <div class="container create-task-section">
-        <div class="columns is-centered">
-            <div class="column is-half">
-                <h4 class="is-size-5 is-uppercase">Create New Project</h4>
-                <br>
-                <form action="" class="form" onsubmit="addProject(event)">
-                    <div class="field is-horizontal">
-                        <div class="field-body">
-                            <div class="field">
-                                <label class="label">Name</label>
-                                <div class="control">
-                                    <input class="input" type="text" placeholder="Text input" name="name">
+    </head>
+
+    <body>
+        <div class="container create-task-section">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <h4 class="is-size-5 is-uppercase">Create New Project</h4>
+                    <br>
+                    <form action="" class="form" onsubmit="addProject(event)">
+                        <div class="field is-horizontal">
+                            <div class="field-body">
+                                <div class="field">
+                                    <label class="label">Name</label>
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Type name of project" name="name">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">Label</label>
-                                <div class="control">
-                                    <div class="select" style="width: 100%">
-                                        <select style="width: 100%" name="label">
-                                            <option>Select dropdown</option>
-                                            <option>3D Modelling </option>
-                                            <option>Asset Inspection </option>
-                                            <option>Mapping & Surveying </option>
-                                            <option>Crop Spraying </option>
-                                            <option>Crop Monitoring</option>
-                                            <option>Drone Maintenance </option>
-                                        </select>
+                                <div class="field">
+                                    <label class="label">Label</label>
+                                    <div class="control">
+                                        <div class="select" style="width: 100%">
+                                            <select style="width: 100%" name="label">
+                                                <option>Select dropdown</option>
+                                                <option>3D Modelling </option>
+                                                <option>Asset Inspection </option>
+                                                <option>Mapping & Surveying </option>
+                                                <option>Crop Spraying </option>
+                                                <option>Crop Monitoring</option>
+                                                <option>Drone Maintenance </option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="field is-horizontal">
-                        <div class="field-body">
-                            <div class="field">
-                                <label class="label">Start Date</label>
-                                <div class="control">
-                                    <input class="input" type="date" placeholder="Text input" name="start">
+                        <div class="field is-horizontal">
+                            <div class="field-body">
+                                <div class="field">
+                                    <label class="label">Start Date</label>
+                                    <div class="control">
+                                        <input class="input" type="date" placeholder="Text input" name="start">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="field">
-                                <label class="label">End Date</label>
-                                <div class="control">
-                                    <input class="input" type="date" placeholder="Text input" name="end">
+                                <div class="field">
+                                    <label class="label">End Date</label>
+                                    <div class="control">
+                                        <input class="input" type="date" placeholder="Text input" name="end">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="field">
-                        <label class="label is-centered">Budget</label>
-                        <div class="control">
-                            <input class="input " type="number" placeholder="" name="budget">
+                        <div class="field">
+                            <label class="label is-centered">Budget</label>
+                            <div class="control">
+                                <input class="input " type="number" placeholder="" name="budget">
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <label class="label is-centered">Project description</label>
-                        <div class="control">
-                            <textarea class="textarea" placeholder="Textarea" name="description"></textarea>
+                        <div class="field">
+                            <label class="label is-centered">Project description</label>
+                            <div class="control">
+                                <textarea class="textarea" placeholder="What is the project about" name="description"></textarea>
+                            </div>
                         </div>
+<<<<<<< HEAD
                     </div>
                     <button type="submit" class="button is-black">Create Project</button>
                 </form>
             </div>
         </div>
     </div>
+=======
+                        <a href=allprojects.html class="button is-black">Create Project</a>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+
+>>>>>>> cd59ba1463ca09c137461d693132077a221c0e3d
+
+                        <!-- The core Firebase JS SDK is always required and must be listed first -->
+                        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+                        <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
+<<<<<<< HEAD
      <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
 
 
@@ -148,5 +158,43 @@
     }
   </script>
 </body>
+=======
+                        <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+                        <script>
+                            // Your web app's Firebase configuration
+                            var firebaseConfig = {
+                                apiKey: "AIzaSyBjzifrlq0A6yvwVYKQ326TiZNYJFoOVDA",
+                                authDomain: "geng-geng.firebaseapp.com",
+                                databaseURL: "https://geng-geng.firebaseio.com",
+                                projectId: "geng-geng",
+                                storageBucket: "geng-geng.appspot.com",
+                                messagingSenderId: "1044525609814",
+                                appId: "1:1044525609814:web:29df35ca1cf99624631cf7"
+                            };
+                            // Initialize Firebase
+                            firebase.initializeApp(firebaseConfig);
+                        </script>
+
+
+                        <script>
+                            var db = firebase.firestore();
+
+
+                            db.collection("users")
+                                .add({
+                                    first: "Ada",
+                                    last: "Lovelace",
+                                    born: 1815
+                                })
+                                .then(function (docRef) {
+                                    console.log("Document written with ID: ", docRef.id);
+                                })
+                                .catch(function (error) {
+                                    console.error("Error adding document: ", error);
+                                });
+                        </script>
+    </body>
+>>>>>>> cd59ba1463ca09c137461d693132077a221c0e3d
 
 </html>
