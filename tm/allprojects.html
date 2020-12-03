@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../css/bulma.min.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <title>all projects</title>
+</head>
+
+<body>
+  <nav class="navbar custom-navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <img src="../images/logo.png" height="40" />
+        </a>
+
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="profile">
+            FA
+          </div>
+          <a href="login.html" class="navbar-item">
+            Logout
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+ 
+  <div class="container dashboard-details">
+    <div class="columns">
+      <div class="column ">
+        <h2 class=" is-size-4 has-text-black">ALL PROJECTS</h2>
+
+      </div>
+      <div class="column has-text-right">
+
+
+        
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="columns is-flex-wrap-wrap" id="allprojects">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+ https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyAIL5wyiVlLYkQTcYBN_y_x0FRYC9otCy0",
+      authDomain: "bliss-8d3fc.firebaseapp.com",
+      databaseURL: "https://bliss-8d3fc.firebaseio.com",
+      projectId: "bliss-8d3fc",
+      storageBucket: "bliss-8d3fc.appspot.com",
+      messagingSenderId: "271696285388",
+      appId: "1:271696285388:web:a685cb733fdcedc216bc69",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    function getAllProjects() {
+      console.log("get teams now");
+      var db = firebase.firestore();
+      var allProjectsDiv = document.getElementById('allprojects');
+      db.collection("projects").get().then((querySnapshot) => {
+        allProjectsDiv.innerHTML = '';
+        querySnapshot.forEach((doc) => {
+          // console.log(`${doc.id} => ${doc.data().projectName}`);
+          let data = doc.data();
+          console.log(data);
+          let newRow = `
+          <div class="column is-4">
+
+<a href="project-detail.html?title=${data.Name}&label=${data.label}&description=${data.description}&start=${data.startDate}&end=${data.endDate}&budget=${data.budget}" class="button is-fullwidth is-large is-warning is-outlined button-size shadow">
+  <em>
+    <h4 class="is-size-5 has-text-black has-text-center"> ${data.Name} </h4>
+    <h6 class="is-size-7 has-text-black">(${data.label})</h6>
+  </em>
+</a>
+
+</div>      
+                 `
+          allProjectsDiv.innerHTML = allProjectsDiv.innerHTML + newRow
+        });
+      });
+    }
+    getAllProjects();
+  </script>
+</body>
+
+</html>
