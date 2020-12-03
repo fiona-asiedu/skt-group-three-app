@@ -8,6 +8,19 @@
   <link rel="stylesheet" href="../css/bulma.min.css" />
   <link rel="stylesheet" href="../css/styles.css" />
   <title>Project Details</title>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const projectDetails = {
+      title: urlParams.get('title'),
+      label: urlParams.get('label'),
+      description: urlParams.get('description'),
+      budget: urlParams.get('budget'),
+      start: urlParams.get('start'),
+      end: urlParams.get('end'),
+    }
+    console.log(projectDetails);
+  </script>
 </head>
 
 <body>
@@ -41,18 +54,26 @@
     <div class="columns">
       <div class="column">
         <h3 class="is-size-4 has-text-centered">
-          <b>Code train--3D modelling</b>
+          <b>
+            <script>
+              document.write(`${projectDetails.title} -- ${projectDetails.label}`)
+            </script>
+          </b>
         </h3>
         <br />
         <p class="has-text-centered">
-          3D Models give clients a more realistic look of events, when
-          viewing data. "Our 3D modelling solution helps engineers ascertain
-          projection coordination and precision"
+          <script>
+            document.write(projectDetails.description)
+          </script>
         </p>
         <br />
         <p class="has-text-centered">
-          <span class="has-text-link">Projected Start Date:</span> 20/07/20 &nbsp;&nbsp;
-          <span class="has-text-danger">Projected End Date:</span> 20/11/20
+          <span class="has-text-link">Projected Start Date:</span> <script>
+            document.write(`${projectDetails.start}`)
+          </script> &nbsp;&nbsp;
+          <span class="has-text-danger">Projected End Date:</span> <script>
+            document.write(`${projectDetails.end}`)
+          </script>
         </p>
       </div>
     </div>
@@ -86,7 +107,7 @@
         <a href="createteams.html" class="button is-black is-small">Create Team</a>
       </div>
     </div>
-    <div class="columns" id="created-teams">
+    <div class="columns is-flex-wrap-wrap" id="created-teams">
       <!-- inserted dynamically using JS -->
     </div>
 
@@ -101,7 +122,7 @@
           labels: ['Budget', 'Expenses', 'Revenue', 'Profit',],
           datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5,],
+            data: [projectDetails.budget, 19, 3, 5,],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
