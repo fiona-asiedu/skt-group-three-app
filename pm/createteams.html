@@ -8,6 +8,18 @@
   <link rel="stylesheet" href="../css/bulma.min.css" />
   <link rel="stylesheet" href="../css/styles.css" />
   <title>create teams</title>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const projectDetails = {
+      title: urlParams.get('title'),
+      label: urlParams.get('label'),
+      description: urlParams.get('description'),
+      budget: urlParams.get('budget'),
+      start: urlParams.get('start'),
+      end: urlParams.get('end'),
+    }
+  </script>
 </head>
 
 <body>
@@ -97,7 +109,8 @@
         })
         .then(function (docRef) {
           console.log("Document written with ID: ", docRef.id);
-          window.location.href = "project-detail.html";
+          let query = new URLSearchParams(projectDetails).toString()
+          window.location.href = `project-detail.html?${query}`;
         })
         .catch(function (error) {
           console.error("Error adding document: ", error);

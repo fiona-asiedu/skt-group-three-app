@@ -104,7 +104,7 @@
         <h4 class="is-size-5">Teams</h4>
       </div>
       <div class="column has-text-right">
-        <a href="createteams.html" class="button is-black is-small">Create Team</a>
+        <a href="createteams.html" id="teamLink" class="button is-black is-small">Create Team</a>
       </div>
     </div>
     <div class="columns is-flex-wrap-wrap" id="created-teams">
@@ -112,6 +112,11 @@
     </div>
 
     <script src="../js/Chart.bundle.min.js"></script>
+    <script>
+      let teamLink = document.getElementById('teamLink')
+      let query = new URLSearchParams(projectDetails).toString()
+      teamLink.href = `createteams.html?${query}`
+      </script>
     <script>
       var ctx = document.getElementById('barchart').getContext('2d');
 
@@ -121,7 +126,7 @@
         data: {
           labels: ['Budget', 'Expenses', 'Revenue', 'Profit',],
           datasets: [{
-            label: '# of Votes',
+            label: 'Finance',
             data: [projectDetails.budget, 19, 3, 5,],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
