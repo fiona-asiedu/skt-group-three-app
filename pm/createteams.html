@@ -29,7 +29,7 @@
   <div class="container create-task-section">
     <div class="columns is-centered">
       <div class="column is-half">
-        <h4 class="is-size-5 is-uppercase"><b>Create New Team</b></h4>
+        <h4 class="is-size-5 is-uppercase">Create A New Team</h4>
         <br />
         <form action="" class="form" onsubmit="createteams(event)">
           <div class="field">
@@ -97,7 +97,7 @@
         })
         .then(function (docRef) {
           console.log("Document written with ID: ", docRef.id);
-          window.location.href = "/pm/project-detail.html";
+          window.location.href = "project-detail.html";
         })
         .catch(function (error) {
           console.error("Error adding document: ", error);
