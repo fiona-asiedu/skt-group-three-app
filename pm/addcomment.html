@@ -81,6 +81,15 @@
   </script>
   <script>
     var db = firebase.firestore();
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const taskDetailsData = {
+        title: urlParams.get('title'),
+        status: urlParams.get('status'),
+        deadline: urlParams.get('deadline'),
+        description: urlParams.get('description'),
+    }
+​
 
     function addcomment(event) {
       event.preventDefault();
@@ -92,7 +101,7 @@
         })
         .then(function (docRef) {
           console.log("Document written with ID: ", docRef.id);
-          window.location.href = "taskdetail.html";
+          window.location.href = `taskdetail.html?title=${taskDetailsData.taskTitle}&status=${taskDetailsData.status}&deadline=${taskDetailsData.taskDeadline}&description=${taskDetailsData.description}`;
         })
         .catch(function (error) {
           console.error("Error adding document: ", error);
