@@ -68,10 +68,12 @@
         </p>
         <br />
         <p class="has-text-centered">
-          <span class="has-text-link">Projected Start Date:</span> <script>
+          <span class="has-text-link">Projected Start Date:</span>
+          <script>
             document.write(`${projectDetails.start}`)
           </script> &nbsp;&nbsp;
-          <span class="has-text-danger">Projected End Date:</span> <script>
+          <span class="has-text-danger">Projected End Date:</span>
+          <script>
             document.write(`${projectDetails.end}`)
           </script>
         </p>
@@ -116,7 +118,7 @@
       let teamLink = document.getElementById('teamLink')
       let query = new URLSearchParams(projectDetails).toString()
       teamLink.href = `createteams.html?${query}`
-      </script>
+    </script>
     <script>
       var ctx = document.getElementById('barchart').getContext('2d');
 
@@ -212,7 +214,7 @@
             console.log(data);
             let newRow = `
                   <div class="column is-3">
-        <a href="taskpage.html" class="button is-light is-warning is-fullwidth">
+        <a href="taskpage.html?team=${data.teamName}" class="button is-light is-warning is-fullwidth">
           ${data.teamName}
         </a>
       </div>
