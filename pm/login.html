@@ -20,11 +20,11 @@
             <div class="column">
                 <h3 class="is-size-3 is-uppercase">Login</h3>
                 <br>
-
+                <form action="" onsubmit="login(event)">
                 <div class="field">
                     <label class="label">Email</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input" type="email" placeholder="Email input">
+                        <input class="input" type="email" name="email" placeholder="Email input">
                     </div>
                 </div>
                 <div class="field">
@@ -35,11 +35,25 @@
                 </div>
 
                 <div class="field is-grouped">
-                  <a href="dashboard.html">  <button class="button is-rounded is-black is-fullwidth">Login</button></a>
+                  <button class="button is-rounded is-black is-fullwidth" type="submit">Login</button>
                 </div>
+            </form>
             </div>
         </div>
     </div>
+    <script>
+        function login(event){
+            event.preventDefault();
+            let email = event.target.email.value
+            if(email.includes('pm') || email.includes('project')){
+                localStorage.setItem("user", 'pm');
+            window.location.href = 'dashboard.html'
+            }else{
+                localStorage.setItem('user', 'tm');
+                window.location.href = 'allprojects.html'
+            }
+        }
+    </script>
 </body>
 
 </html>

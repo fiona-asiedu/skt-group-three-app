@@ -25,7 +25,7 @@
     <nav class="navbar custom-navbar" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item" href="#">
+                <a class="navbar-item" href="dashboard.html">
                     <img src="../images/logo.png" height="40" />
                 </a>
 
@@ -108,20 +108,20 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
                     <p>(Status - ${taskDetailsData.status})</p>
                     <form>
                         <div class="field">
-              <label class="label">Status</label>
-              <div class="control">
-                <div class="select">
-                  <select name="status">
-                    <option>--Select option--</option>
-                    <option>To Do</option>
-                    <option>In Progress</option>
-                    <option>Completed</option>
-                    <option>Overdue</option>
-                  </select>
-                </div>
-                <button class="button is-black">Update Status</button>
-              </div>
-            </div>
+                            <label class="label">Status</label>
+                            <div class="control">
+                                <div class="select">
+                                <select name="status">
+                                    <option>--Select option--</option>
+                                    <option>To Do</option>
+                                    <option>In Progress</option>
+                                    <option>Completed</option>
+                                    <option>Overdue</option>
+                                </select>
+                                </div>
+                                <button class="button is-black">Update Status</button>
+                            </div>
+                            </div>
                     </form>
                     <br>
                     <p>${taskDetailsData.description}</p>`
@@ -153,5 +153,5 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     }
     getAllComments();
 </script>
-
+</body>
 </html>

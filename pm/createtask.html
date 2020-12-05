@@ -8,13 +8,18 @@
   <link rel="stylesheet" href="../css/bulma.min.css" />
   <link rel="stylesheet" href="../css/styles.css" />
   <title>create task</title>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const team = urlParams.get('team')
+</script>
 </head>
 
 <body>
   <nav class="navbar custom-navbar" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item" href="#">
+        <a class="navbar-item" href="dashboard.html">
           <img src="../images/logo.png" height="40" />
         </a>
 
@@ -101,7 +106,7 @@
        })
        .then(function (docRef) {
          console.log("Document written with ID: ", docRef.id);
-         window.location.href = "taskpage.html";
+         window.location.href = `taskpage.html?team=${team}`;
        })
        .catch(function (error) {
          console.error("Error adding document: ", error);
