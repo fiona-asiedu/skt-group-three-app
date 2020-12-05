@@ -14,7 +14,7 @@
   <nav class="navbar custom-navbar" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item" href="#">
+        <a class="navbar-item" href="dashboard.html">
           <img src="../images/logo.png" height="40" />
         </a>
 
@@ -83,15 +83,6 @@
   </script>
   <script>
     var db = firebase.firestore();
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const taskDetailsData = {
-        title: urlParams.get('title'),
-        status: urlParams.get('status'),
-        deadline: urlParams.get('deadline'),
-        description: urlParams.get('description'),
-    }
-​
 
     function addcomment(event) {
       event.preventDefault();

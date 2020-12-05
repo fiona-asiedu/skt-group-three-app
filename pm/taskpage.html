@@ -20,7 +20,7 @@
     <nav class="navbar custom-navbar" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item" href="#">
+                <a class="navbar-item" href="dashboard.html">
                     <img src="../images/logo.png" height="40" />
                 </a>
 
@@ -64,7 +64,7 @@
                     <div class="column">
                         <h4 class="is-size-5"><b>Tasks Assigned</b></h4>
                     </div>
-                    <div class="column has-text-right"><a href="createtask.html" class="button is-black is-small">Create
+                    <div class="column has-text-right"><a href="createtask.html" id="taskLink" class="button is-black is-small">Create
                             Task</a></div>
                 </div>
 
@@ -74,6 +74,10 @@
             </div>
         </div>
     </div>
+    <script>
+        let taskLink = document.getElementById('taskLink')
+        taskLink.href = `createtask.html?team=${team}`
+        </script>
     <script src="../js/Chart.bundle.min.js"></script>
     <script>
         // For a pie chart
@@ -107,7 +111,7 @@
             data: {
                 labels: ['Budget', 'Expenses', 'Revenue', 'Profit',],
                 datasets: [{
-                    label: '# of Votes',
+                    label: 'Finance',
                     data: [12, 19, 3, 5,],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
