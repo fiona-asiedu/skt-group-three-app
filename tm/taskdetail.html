@@ -62,7 +62,7 @@
                         <h5 class="is-size-5 is-capitalized has-text-weight-semibold">Team mate comments</h5>
                     </div>
                     <div class="column has-text-right">
-                        <a href="addcomment.html" class="button is-small is-dark">Add Comment</a>
+                        <a href="addcomment.html" id="commentLink" class="button is-small is-dark">Add Comment</a>
                     </div>
                 </div>
                 <div class="columns">
@@ -73,7 +73,11 @@
             </div>
         </div>
     </div>
-
+    <script>
+        let commentLink = document.getElementById('commentLink')
+        commentLink.href = `addcomment.html?title=${taskDetailsData.title}&status=${taskDetailsData.status}&deadline=${taskDetailsData.deadline}&description=${taskDetailsData.description}`
+        </script>
+</body>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
@@ -102,9 +106,25 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     taskDetailDiv.innerHTML = ""
     taskDetailDiv.innerHTML = `<p>${taskDetailsData.title} - ${taskDetailsData.deadline} </p>
                     <p>(Status - ${taskDetailsData.status})</p>
+                    <form>
+                        <div class="field">
+              <label class="label">Status</label>
+              <div class="control">
+                <div class="select">
+                  <select name="status">
+                    <option>--Select option--</option>
+                    <option>To Do</option>
+                    <option>In Progress</option>
+                    <option>Completed</option>
+                    <option>Overdue</option>
+                  </select>
+                </div>
+                <button class="button is-black">Update Status</button>
+              </div>
+            </div>
+                    </form>
                     <br>
                     <p>${taskDetailsData.description}</p>`
-          
 
     // Display comments
     function getAllComments() {
@@ -133,5 +153,5 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
     }
     getAllComments();
 </script>
-</body>
+
 </html>
